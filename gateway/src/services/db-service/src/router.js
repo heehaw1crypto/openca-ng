@@ -1,0 +1,2115 @@
+const express = require("express");
+const {
+  auth,
+  validateBody,
+  validateQuery,
+  validateHeaders,
+  validateParams,
+} = require("../core-js");
+const routeHandlers = require("./route-handlers");
+
+const router = express.Router();
+
+router.post("/__sql", auth, routeHandlers.__sql);
+router.get(
+  "/authorization/:uuid",
+  auth,
+  validateHeaders(require("./schemas/authorization.GET.req.headers.json")),
+  validateParams(require("./schemas/authorization.GET.req.params.json")),
+  routeHandlers.authorizationGet
+);
+router.get(
+  "/authorization",
+  auth,
+  validateHeaders(require("./schemas/authorization.GET.list.req.headers.json")),
+  validateQuery(require("./schemas/authorization.GET.list.req.query.json")),
+  routeHandlers.authorizationGetList
+);
+router.post(
+  "/authorization",
+  auth,
+  validateHeaders(require("./schemas/authorization.POST.req.headers.json")),
+  validateBody(require("./schemas/authorization.POST.req.body.json")),
+  routeHandlers.authorizationPost
+);
+router.patch(
+  "/authorization/:uuid",
+  auth,
+  validateHeaders(require("./schemas/authorization.PATCH.req.headers.json")),
+  validateParams(require("./schemas/authorization.PATCH.req.params.json")),
+  validateBody(require("./schemas/authorization.PATCH.req.body.json")),
+  routeHandlers.authorizationPatch
+);
+router.patch(
+  "/authorization",
+  auth,
+  validateHeaders(
+    require("./schemas/authorization.PATCH.list.req.headers.json")
+  ),
+  validateQuery(require("./schemas/authorization.PATCH.list.req.query.json")),
+  routeHandlers.authorizationPatchList
+);
+router.delete(
+  "/authorization/:uuid",
+  auth,
+  validateHeaders(require("./schemas/authorization.DELETE.req.headers.json")),
+  validateParams(require("./schemas/authorization.DELETE.req.params.json")),
+  routeHandlers.authorizationDelete
+);
+router.delete(
+  "/authorization",
+  auth,
+  validateHeaders(
+    require("./schemas/authorization.DELETE.list.req.headers.json")
+  ),
+  validateQuery(require("./schemas/authorization.DELETE.list.req.query.json")),
+  routeHandlers.authorizationDeleteList
+);
+router.get(
+  "/media/:uuid",
+  auth,
+  validateHeaders(require("./schemas/media.GET.req.headers.json")),
+  validateParams(require("./schemas/media.GET.req.params.json")),
+  routeHandlers.mediaGet
+);
+router.get(
+  "/media",
+  auth,
+  validateHeaders(require("./schemas/media.GET.list.req.headers.json")),
+  validateQuery(require("./schemas/media.GET.list.req.query.json")),
+  routeHandlers.mediaGetList
+);
+router.post(
+  "/media",
+  auth,
+  validateHeaders(require("./schemas/media.POST.req.headers.json")),
+  validateBody(require("./schemas/media.POST.req.body.json")),
+  routeHandlers.mediaPost
+);
+router.patch(
+  "/media/:uuid",
+  auth,
+  validateHeaders(require("./schemas/media.PATCH.req.headers.json")),
+  validateParams(require("./schemas/media.PATCH.req.params.json")),
+  validateBody(require("./schemas/media.PATCH.req.body.json")),
+  routeHandlers.mediaPatch
+);
+router.patch(
+  "/media",
+  auth,
+  validateHeaders(require("./schemas/media.PATCH.list.req.headers.json")),
+  validateQuery(require("./schemas/media.PATCH.list.req.query.json")),
+  routeHandlers.mediaPatchList
+);
+router.delete(
+  "/media/:uuid",
+  auth,
+  validateHeaders(require("./schemas/media.DELETE.req.headers.json")),
+  validateParams(require("./schemas/media.DELETE.req.params.json")),
+  routeHandlers.mediaDelete
+);
+router.delete(
+  "/media",
+  auth,
+  validateHeaders(require("./schemas/media.DELETE.list.req.headers.json")),
+  validateQuery(require("./schemas/media.DELETE.list.req.query.json")),
+  routeHandlers.mediaDeleteList
+);
+router.get(
+  "/organization/:uuid",
+  auth,
+  validateHeaders(require("./schemas/organization.GET.req.headers.json")),
+  validateParams(require("./schemas/organization.GET.req.params.json")),
+  routeHandlers.organizationGet
+);
+router.get(
+  "/organization",
+  auth,
+  validateHeaders(require("./schemas/organization.GET.list.req.headers.json")),
+  validateQuery(require("./schemas/organization.GET.list.req.query.json")),
+  routeHandlers.organizationGetList
+);
+router.post(
+  "/organization",
+  auth,
+  validateHeaders(require("./schemas/organization.POST.req.headers.json")),
+  validateBody(require("./schemas/organization.POST.req.body.json")),
+  routeHandlers.organizationPost
+);
+router.patch(
+  "/organization/:uuid",
+  auth,
+  validateHeaders(require("./schemas/organization.PATCH.req.headers.json")),
+  validateParams(require("./schemas/organization.PATCH.req.params.json")),
+  validateBody(require("./schemas/organization.PATCH.req.body.json")),
+  routeHandlers.organizationPatch
+);
+router.patch(
+  "/organization",
+  auth,
+  validateHeaders(
+    require("./schemas/organization.PATCH.list.req.headers.json")
+  ),
+  validateQuery(require("./schemas/organization.PATCH.list.req.query.json")),
+  routeHandlers.organizationPatchList
+);
+router.delete(
+  "/organization/:uuid",
+  auth,
+  validateHeaders(require("./schemas/organization.DELETE.req.headers.json")),
+  validateParams(require("./schemas/organization.DELETE.req.params.json")),
+  routeHandlers.organizationDelete
+);
+router.delete(
+  "/organization",
+  auth,
+  validateHeaders(
+    require("./schemas/organization.DELETE.list.req.headers.json")
+  ),
+  validateQuery(require("./schemas/organization.DELETE.list.req.query.json")),
+  routeHandlers.organizationDeleteList
+);
+router.get(
+  "/organization-role/:uuid",
+  auth,
+  validateHeaders(require("./schemas/organization-role.GET.req.headers.json")),
+  validateParams(require("./schemas/organization-role.GET.req.params.json")),
+  routeHandlers.organizationRoleGet
+);
+router.get(
+  "/organization-role",
+  auth,
+  validateHeaders(
+    require("./schemas/organization-role.GET.list.req.headers.json")
+  ),
+  validateQuery(require("./schemas/organization-role.GET.list.req.query.json")),
+  routeHandlers.organizationRoleGetList
+);
+router.post(
+  "/organization-role",
+  auth,
+  validateHeaders(require("./schemas/organization-role.POST.req.headers.json")),
+  validateBody(require("./schemas/organization-role.POST.req.body.json")),
+  routeHandlers.organizationRolePost
+);
+router.patch(
+  "/organization-role/:uuid",
+  auth,
+  validateHeaders(
+    require("./schemas/organization-role.PATCH.req.headers.json")
+  ),
+  validateParams(require("./schemas/organization-role.PATCH.req.params.json")),
+  validateBody(require("./schemas/organization-role.PATCH.req.body.json")),
+  routeHandlers.organizationRolePatch
+);
+router.patch(
+  "/organization-role",
+  auth,
+  validateHeaders(
+    require("./schemas/organization-role.PATCH.list.req.headers.json")
+  ),
+  validateQuery(
+    require("./schemas/organization-role.PATCH.list.req.query.json")
+  ),
+  routeHandlers.organizationRolePatchList
+);
+router.delete(
+  "/organization-role/:uuid",
+  auth,
+  validateHeaders(
+    require("./schemas/organization-role.DELETE.req.headers.json")
+  ),
+  validateParams(require("./schemas/organization-role.DELETE.req.params.json")),
+  routeHandlers.organizationRoleDelete
+);
+router.delete(
+  "/organization-role",
+  auth,
+  validateHeaders(
+    require("./schemas/organization-role.DELETE.list.req.headers.json")
+  ),
+  validateQuery(
+    require("./schemas/organization-role.DELETE.list.req.query.json")
+  ),
+  routeHandlers.organizationRoleDeleteList
+);
+router.get(
+  "/project/:uuid",
+  auth,
+  validateHeaders(require("./schemas/project.GET.req.headers.json")),
+  validateParams(require("./schemas/project.GET.req.params.json")),
+  routeHandlers.projectGet
+);
+router.get(
+  "/project",
+  auth,
+  validateHeaders(require("./schemas/project.GET.list.req.headers.json")),
+  validateQuery(require("./schemas/project.GET.list.req.query.json")),
+  routeHandlers.projectGetList
+);
+router.post(
+  "/project",
+  auth,
+  validateHeaders(require("./schemas/project.POST.req.headers.json")),
+  validateBody(require("./schemas/project.POST.req.body.json")),
+  routeHandlers.projectPost
+);
+router.patch(
+  "/project/:uuid",
+  auth,
+  validateHeaders(require("./schemas/project.PATCH.req.headers.json")),
+  validateParams(require("./schemas/project.PATCH.req.params.json")),
+  validateBody(require("./schemas/project.PATCH.req.body.json")),
+  routeHandlers.projectPatch
+);
+router.patch(
+  "/project",
+  auth,
+  validateHeaders(require("./schemas/project.PATCH.list.req.headers.json")),
+  validateQuery(require("./schemas/project.PATCH.list.req.query.json")),
+  routeHandlers.projectPatchList
+);
+router.delete(
+  "/project/:uuid",
+  auth,
+  validateHeaders(require("./schemas/project.DELETE.req.headers.json")),
+  validateParams(require("./schemas/project.DELETE.req.params.json")),
+  routeHandlers.projectDelete
+);
+router.delete(
+  "/project",
+  auth,
+  validateHeaders(require("./schemas/project.DELETE.list.req.headers.json")),
+  validateQuery(require("./schemas/project.DELETE.list.req.query.json")),
+  routeHandlers.projectDeleteList
+);
+router.get(
+  "/project-attribute/:uuid",
+  auth,
+  validateHeaders(require("./schemas/project-attribute.GET.req.headers.json")),
+  validateParams(require("./schemas/project-attribute.GET.req.params.json")),
+  routeHandlers.projectAttributeGet
+);
+router.get(
+  "/project-attribute",
+  auth,
+  validateHeaders(
+    require("./schemas/project-attribute.GET.list.req.headers.json")
+  ),
+  validateQuery(require("./schemas/project-attribute.GET.list.req.query.json")),
+  routeHandlers.projectAttributeGetList
+);
+router.post(
+  "/project-attribute",
+  auth,
+  validateHeaders(require("./schemas/project-attribute.POST.req.headers.json")),
+  validateBody(require("./schemas/project-attribute.POST.req.body.json")),
+  routeHandlers.projectAttributePost
+);
+router.patch(
+  "/project-attribute/:uuid",
+  auth,
+  validateHeaders(
+    require("./schemas/project-attribute.PATCH.req.headers.json")
+  ),
+  validateParams(require("./schemas/project-attribute.PATCH.req.params.json")),
+  validateBody(require("./schemas/project-attribute.PATCH.req.body.json")),
+  routeHandlers.projectAttributePatch
+);
+router.patch(
+  "/project-attribute",
+  auth,
+  validateHeaders(
+    require("./schemas/project-attribute.PATCH.list.req.headers.json")
+  ),
+  validateQuery(
+    require("./schemas/project-attribute.PATCH.list.req.query.json")
+  ),
+  routeHandlers.projectAttributePatchList
+);
+router.delete(
+  "/project-attribute/:uuid",
+  auth,
+  validateHeaders(
+    require("./schemas/project-attribute.DELETE.req.headers.json")
+  ),
+  validateParams(require("./schemas/project-attribute.DELETE.req.params.json")),
+  routeHandlers.projectAttributeDelete
+);
+router.delete(
+  "/project-attribute",
+  auth,
+  validateHeaders(
+    require("./schemas/project-attribute.DELETE.list.req.headers.json")
+  ),
+  validateQuery(
+    require("./schemas/project-attribute.DELETE.list.req.query.json")
+  ),
+  routeHandlers.projectAttributeDeleteList
+);
+router.get(
+  "/project-attribute-type/:uuid",
+  auth,
+  validateHeaders(
+    require("./schemas/project-attribute-type.GET.req.headers.json")
+  ),
+  validateParams(
+    require("./schemas/project-attribute-type.GET.req.params.json")
+  ),
+  routeHandlers.projectAttributeTypeGet
+);
+router.get(
+  "/project-attribute-type",
+  auth,
+  validateHeaders(
+    require("./schemas/project-attribute-type.GET.list.req.headers.json")
+  ),
+  validateQuery(
+    require("./schemas/project-attribute-type.GET.list.req.query.json")
+  ),
+  routeHandlers.projectAttributeTypeGetList
+);
+router.post(
+  "/project-attribute-type",
+  auth,
+  validateHeaders(
+    require("./schemas/project-attribute-type.POST.req.headers.json")
+  ),
+  validateBody(require("./schemas/project-attribute-type.POST.req.body.json")),
+  routeHandlers.projectAttributeTypePost
+);
+router.patch(
+  "/project-attribute-type/:uuid",
+  auth,
+  validateHeaders(
+    require("./schemas/project-attribute-type.PATCH.req.headers.json")
+  ),
+  validateParams(
+    require("./schemas/project-attribute-type.PATCH.req.params.json")
+  ),
+  validateBody(require("./schemas/project-attribute-type.PATCH.req.body.json")),
+  routeHandlers.projectAttributeTypePatch
+);
+router.patch(
+  "/project-attribute-type",
+  auth,
+  validateHeaders(
+    require("./schemas/project-attribute-type.PATCH.list.req.headers.json")
+  ),
+  validateQuery(
+    require("./schemas/project-attribute-type.PATCH.list.req.query.json")
+  ),
+  routeHandlers.projectAttributeTypePatchList
+);
+router.delete(
+  "/project-attribute-type/:uuid",
+  auth,
+  validateHeaders(
+    require("./schemas/project-attribute-type.DELETE.req.headers.json")
+  ),
+  validateParams(
+    require("./schemas/project-attribute-type.DELETE.req.params.json")
+  ),
+  routeHandlers.projectAttributeTypeDelete
+);
+router.delete(
+  "/project-attribute-type",
+  auth,
+  validateHeaders(
+    require("./schemas/project-attribute-type.DELETE.list.req.headers.json")
+  ),
+  validateQuery(
+    require("./schemas/project-attribute-type.DELETE.list.req.query.json")
+  ),
+  routeHandlers.projectAttributeTypeDeleteList
+);
+router.get(
+  "/project-attribute-type-value/:uuid",
+  auth,
+  validateHeaders(
+    require("./schemas/project-attribute-type-value.GET.req.headers.json")
+  ),
+  validateParams(
+    require("./schemas/project-attribute-type-value.GET.req.params.json")
+  ),
+  routeHandlers.projectAttributeTypeValueGet
+);
+router.get(
+  "/project-attribute-type-value",
+  auth,
+  validateHeaders(
+    require("./schemas/project-attribute-type-value.GET.list.req.headers.json")
+  ),
+  validateQuery(
+    require("./schemas/project-attribute-type-value.GET.list.req.query.json")
+  ),
+  routeHandlers.projectAttributeTypeValueGetList
+);
+router.post(
+  "/project-attribute-type-value",
+  auth,
+  validateHeaders(
+    require("./schemas/project-attribute-type-value.POST.req.headers.json")
+  ),
+  validateBody(
+    require("./schemas/project-attribute-type-value.POST.req.body.json")
+  ),
+  routeHandlers.projectAttributeTypeValuePost
+);
+router.patch(
+  "/project-attribute-type-value/:uuid",
+  auth,
+  validateHeaders(
+    require("./schemas/project-attribute-type-value.PATCH.req.headers.json")
+  ),
+  validateParams(
+    require("./schemas/project-attribute-type-value.PATCH.req.params.json")
+  ),
+  validateBody(
+    require("./schemas/project-attribute-type-value.PATCH.req.body.json")
+  ),
+  routeHandlers.projectAttributeTypeValuePatch
+);
+router.patch(
+  "/project-attribute-type-value",
+  auth,
+  validateHeaders(
+    require("./schemas/project-attribute-type-value.PATCH.list.req.headers.json")
+  ),
+  validateQuery(
+    require("./schemas/project-attribute-type-value.PATCH.list.req.query.json")
+  ),
+  routeHandlers.projectAttributeTypeValuePatchList
+);
+router.delete(
+  "/project-attribute-type-value/:uuid",
+  auth,
+  validateHeaders(
+    require("./schemas/project-attribute-type-value.DELETE.req.headers.json")
+  ),
+  validateParams(
+    require("./schemas/project-attribute-type-value.DELETE.req.params.json")
+  ),
+  routeHandlers.projectAttributeTypeValueDelete
+);
+router.delete(
+  "/project-attribute-type-value",
+  auth,
+  validateHeaders(
+    require("./schemas/project-attribute-type-value.DELETE.list.req.headers.json")
+  ),
+  validateQuery(
+    require("./schemas/project-attribute-type-value.DELETE.list.req.query.json")
+  ),
+  routeHandlers.projectAttributeTypeValueDeleteList
+);
+router.get(
+  "/risk/:uuid",
+  auth,
+  validateHeaders(require("./schemas/risk.GET.req.headers.json")),
+  validateParams(require("./schemas/risk.GET.req.params.json")),
+  routeHandlers.riskGet
+);
+router.get(
+  "/risk",
+  auth,
+  validateHeaders(require("./schemas/risk.GET.list.req.headers.json")),
+  validateQuery(require("./schemas/risk.GET.list.req.query.json")),
+  routeHandlers.riskGetList
+);
+router.post(
+  "/risk",
+  auth,
+  validateHeaders(require("./schemas/risk.POST.req.headers.json")),
+  validateBody(require("./schemas/risk.POST.req.body.json")),
+  routeHandlers.riskPost
+);
+router.patch(
+  "/risk/:uuid",
+  auth,
+  validateHeaders(require("./schemas/risk.PATCH.req.headers.json")),
+  validateParams(require("./schemas/risk.PATCH.req.params.json")),
+  validateBody(require("./schemas/risk.PATCH.req.body.json")),
+  routeHandlers.riskPatch
+);
+router.patch(
+  "/risk",
+  auth,
+  validateHeaders(require("./schemas/risk.PATCH.list.req.headers.json")),
+  validateQuery(require("./schemas/risk.PATCH.list.req.query.json")),
+  routeHandlers.riskPatchList
+);
+router.delete(
+  "/risk/:uuid",
+  auth,
+  validateHeaders(require("./schemas/risk.DELETE.req.headers.json")),
+  validateParams(require("./schemas/risk.DELETE.req.params.json")),
+  routeHandlers.riskDelete
+);
+router.delete(
+  "/risk",
+  auth,
+  validateHeaders(require("./schemas/risk.DELETE.list.req.headers.json")),
+  validateQuery(require("./schemas/risk.DELETE.list.req.query.json")),
+  routeHandlers.riskDeleteList
+);
+router.get(
+  "/risk-attribute/:uuid",
+  auth,
+  validateHeaders(require("./schemas/risk-attribute.GET.req.headers.json")),
+  validateParams(require("./schemas/risk-attribute.GET.req.params.json")),
+  routeHandlers.riskAttributeGet
+);
+router.get(
+  "/risk-attribute",
+  auth,
+  validateHeaders(
+    require("./schemas/risk-attribute.GET.list.req.headers.json")
+  ),
+  validateQuery(require("./schemas/risk-attribute.GET.list.req.query.json")),
+  routeHandlers.riskAttributeGetList
+);
+router.post(
+  "/risk-attribute",
+  auth,
+  validateHeaders(require("./schemas/risk-attribute.POST.req.headers.json")),
+  validateBody(require("./schemas/risk-attribute.POST.req.body.json")),
+  routeHandlers.riskAttributePost
+);
+router.patch(
+  "/risk-attribute/:uuid",
+  auth,
+  validateHeaders(require("./schemas/risk-attribute.PATCH.req.headers.json")),
+  validateParams(require("./schemas/risk-attribute.PATCH.req.params.json")),
+  validateBody(require("./schemas/risk-attribute.PATCH.req.body.json")),
+  routeHandlers.riskAttributePatch
+);
+router.patch(
+  "/risk-attribute",
+  auth,
+  validateHeaders(
+    require("./schemas/risk-attribute.PATCH.list.req.headers.json")
+  ),
+  validateQuery(require("./schemas/risk-attribute.PATCH.list.req.query.json")),
+  routeHandlers.riskAttributePatchList
+);
+router.delete(
+  "/risk-attribute/:uuid",
+  auth,
+  validateHeaders(require("./schemas/risk-attribute.DELETE.req.headers.json")),
+  validateParams(require("./schemas/risk-attribute.DELETE.req.params.json")),
+  routeHandlers.riskAttributeDelete
+);
+router.delete(
+  "/risk-attribute",
+  auth,
+  validateHeaders(
+    require("./schemas/risk-attribute.DELETE.list.req.headers.json")
+  ),
+  validateQuery(require("./schemas/risk-attribute.DELETE.list.req.query.json")),
+  routeHandlers.riskAttributeDeleteList
+);
+router.get(
+  "/risk-attribute-type/:uuid",
+  auth,
+  validateHeaders(
+    require("./schemas/risk-attribute-type.GET.req.headers.json")
+  ),
+  validateParams(require("./schemas/risk-attribute-type.GET.req.params.json")),
+  routeHandlers.riskAttributeTypeGet
+);
+router.get(
+  "/risk-attribute-type",
+  auth,
+  validateHeaders(
+    require("./schemas/risk-attribute-type.GET.list.req.headers.json")
+  ),
+  validateQuery(
+    require("./schemas/risk-attribute-type.GET.list.req.query.json")
+  ),
+  routeHandlers.riskAttributeTypeGetList
+);
+router.post(
+  "/risk-attribute-type",
+  auth,
+  validateHeaders(
+    require("./schemas/risk-attribute-type.POST.req.headers.json")
+  ),
+  validateBody(require("./schemas/risk-attribute-type.POST.req.body.json")),
+  routeHandlers.riskAttributeTypePost
+);
+router.patch(
+  "/risk-attribute-type/:uuid",
+  auth,
+  validateHeaders(
+    require("./schemas/risk-attribute-type.PATCH.req.headers.json")
+  ),
+  validateParams(
+    require("./schemas/risk-attribute-type.PATCH.req.params.json")
+  ),
+  validateBody(require("./schemas/risk-attribute-type.PATCH.req.body.json")),
+  routeHandlers.riskAttributeTypePatch
+);
+router.patch(
+  "/risk-attribute-type",
+  auth,
+  validateHeaders(
+    require("./schemas/risk-attribute-type.PATCH.list.req.headers.json")
+  ),
+  validateQuery(
+    require("./schemas/risk-attribute-type.PATCH.list.req.query.json")
+  ),
+  routeHandlers.riskAttributeTypePatchList
+);
+router.delete(
+  "/risk-attribute-type/:uuid",
+  auth,
+  validateHeaders(
+    require("./schemas/risk-attribute-type.DELETE.req.headers.json")
+  ),
+  validateParams(
+    require("./schemas/risk-attribute-type.DELETE.req.params.json")
+  ),
+  routeHandlers.riskAttributeTypeDelete
+);
+router.delete(
+  "/risk-attribute-type",
+  auth,
+  validateHeaders(
+    require("./schemas/risk-attribute-type.DELETE.list.req.headers.json")
+  ),
+  validateQuery(
+    require("./schemas/risk-attribute-type.DELETE.list.req.query.json")
+  ),
+  routeHandlers.riskAttributeTypeDeleteList
+);
+router.get(
+  "/risk-category/:uuid",
+  auth,
+  validateHeaders(require("./schemas/risk-category.GET.req.headers.json")),
+  validateParams(require("./schemas/risk-category.GET.req.params.json")),
+  routeHandlers.riskCategoryGet
+);
+router.get(
+  "/risk-category",
+  auth,
+  validateHeaders(require("./schemas/risk-category.GET.list.req.headers.json")),
+  validateQuery(require("./schemas/risk-category.GET.list.req.query.json")),
+  routeHandlers.riskCategoryGetList
+);
+router.post(
+  "/risk-category",
+  auth,
+  validateHeaders(require("./schemas/risk-category.POST.req.headers.json")),
+  validateBody(require("./schemas/risk-category.POST.req.body.json")),
+  routeHandlers.riskCategoryPost
+);
+router.patch(
+  "/risk-category/:uuid",
+  auth,
+  validateHeaders(require("./schemas/risk-category.PATCH.req.headers.json")),
+  validateParams(require("./schemas/risk-category.PATCH.req.params.json")),
+  validateBody(require("./schemas/risk-category.PATCH.req.body.json")),
+  routeHandlers.riskCategoryPatch
+);
+router.patch(
+  "/risk-category",
+  auth,
+  validateHeaders(
+    require("./schemas/risk-category.PATCH.list.req.headers.json")
+  ),
+  validateQuery(require("./schemas/risk-category.PATCH.list.req.query.json")),
+  routeHandlers.riskCategoryPatchList
+);
+router.delete(
+  "/risk-category/:uuid",
+  auth,
+  validateHeaders(require("./schemas/risk-category.DELETE.req.headers.json")),
+  validateParams(require("./schemas/risk-category.DELETE.req.params.json")),
+  routeHandlers.riskCategoryDelete
+);
+router.delete(
+  "/risk-category",
+  auth,
+  validateHeaders(
+    require("./schemas/risk-category.DELETE.list.req.headers.json")
+  ),
+  validateQuery(require("./schemas/risk-category.DELETE.list.req.query.json")),
+  routeHandlers.riskCategoryDeleteList
+);
+router.get(
+  "/risk-category-attribute/:uuid",
+  auth,
+  validateHeaders(
+    require("./schemas/risk-category-attribute.GET.req.headers.json")
+  ),
+  validateParams(
+    require("./schemas/risk-category-attribute.GET.req.params.json")
+  ),
+  routeHandlers.riskCategoryAttributeGet
+);
+router.get(
+  "/risk-category-attribute",
+  auth,
+  validateHeaders(
+    require("./schemas/risk-category-attribute.GET.list.req.headers.json")
+  ),
+  validateQuery(
+    require("./schemas/risk-category-attribute.GET.list.req.query.json")
+  ),
+  routeHandlers.riskCategoryAttributeGetList
+);
+router.post(
+  "/risk-category-attribute",
+  auth,
+  validateHeaders(
+    require("./schemas/risk-category-attribute.POST.req.headers.json")
+  ),
+  validateBody(require("./schemas/risk-category-attribute.POST.req.body.json")),
+  routeHandlers.riskCategoryAttributePost
+);
+router.patch(
+  "/risk-category-attribute/:uuid",
+  auth,
+  validateHeaders(
+    require("./schemas/risk-category-attribute.PATCH.req.headers.json")
+  ),
+  validateParams(
+    require("./schemas/risk-category-attribute.PATCH.req.params.json")
+  ),
+  validateBody(
+    require("./schemas/risk-category-attribute.PATCH.req.body.json")
+  ),
+  routeHandlers.riskCategoryAttributePatch
+);
+router.patch(
+  "/risk-category-attribute",
+  auth,
+  validateHeaders(
+    require("./schemas/risk-category-attribute.PATCH.list.req.headers.json")
+  ),
+  validateQuery(
+    require("./schemas/risk-category-attribute.PATCH.list.req.query.json")
+  ),
+  routeHandlers.riskCategoryAttributePatchList
+);
+router.delete(
+  "/risk-category-attribute/:uuid",
+  auth,
+  validateHeaders(
+    require("./schemas/risk-category-attribute.DELETE.req.headers.json")
+  ),
+  validateParams(
+    require("./schemas/risk-category-attribute.DELETE.req.params.json")
+  ),
+  routeHandlers.riskCategoryAttributeDelete
+);
+router.delete(
+  "/risk-category-attribute",
+  auth,
+  validateHeaders(
+    require("./schemas/risk-category-attribute.DELETE.list.req.headers.json")
+  ),
+  validateQuery(
+    require("./schemas/risk-category-attribute.DELETE.list.req.query.json")
+  ),
+  routeHandlers.riskCategoryAttributeDeleteList
+);
+router.get(
+  "/risk-category-attribute-type/:uuid",
+  auth,
+  validateHeaders(
+    require("./schemas/risk-category-attribute-type.GET.req.headers.json")
+  ),
+  validateParams(
+    require("./schemas/risk-category-attribute-type.GET.req.params.json")
+  ),
+  routeHandlers.riskCategoryAttributeTypeGet
+);
+router.get(
+  "/risk-category-attribute-type",
+  auth,
+  validateHeaders(
+    require("./schemas/risk-category-attribute-type.GET.list.req.headers.json")
+  ),
+  validateQuery(
+    require("./schemas/risk-category-attribute-type.GET.list.req.query.json")
+  ),
+  routeHandlers.riskCategoryAttributeTypeGetList
+);
+router.post(
+  "/risk-category-attribute-type",
+  auth,
+  validateHeaders(
+    require("./schemas/risk-category-attribute-type.POST.req.headers.json")
+  ),
+  validateBody(
+    require("./schemas/risk-category-attribute-type.POST.req.body.json")
+  ),
+  routeHandlers.riskCategoryAttributeTypePost
+);
+router.patch(
+  "/risk-category-attribute-type/:uuid",
+  auth,
+  validateHeaders(
+    require("./schemas/risk-category-attribute-type.PATCH.req.headers.json")
+  ),
+  validateParams(
+    require("./schemas/risk-category-attribute-type.PATCH.req.params.json")
+  ),
+  validateBody(
+    require("./schemas/risk-category-attribute-type.PATCH.req.body.json")
+  ),
+  routeHandlers.riskCategoryAttributeTypePatch
+);
+router.patch(
+  "/risk-category-attribute-type",
+  auth,
+  validateHeaders(
+    require("./schemas/risk-category-attribute-type.PATCH.list.req.headers.json")
+  ),
+  validateQuery(
+    require("./schemas/risk-category-attribute-type.PATCH.list.req.query.json")
+  ),
+  routeHandlers.riskCategoryAttributeTypePatchList
+);
+router.delete(
+  "/risk-category-attribute-type/:uuid",
+  auth,
+  validateHeaders(
+    require("./schemas/risk-category-attribute-type.DELETE.req.headers.json")
+  ),
+  validateParams(
+    require("./schemas/risk-category-attribute-type.DELETE.req.params.json")
+  ),
+  routeHandlers.riskCategoryAttributeTypeDelete
+);
+router.delete(
+  "/risk-category-attribute-type",
+  auth,
+  validateHeaders(
+    require("./schemas/risk-category-attribute-type.DELETE.list.req.headers.json")
+  ),
+  validateQuery(
+    require("./schemas/risk-category-attribute-type.DELETE.list.req.query.json")
+  ),
+  routeHandlers.riskCategoryAttributeTypeDeleteList
+);
+router.get(
+  "/risk-category-project/:uuid",
+  auth,
+  validateHeaders(
+    require("./schemas/risk-category-project.GET.req.headers.json")
+  ),
+  validateParams(
+    require("./schemas/risk-category-project.GET.req.params.json")
+  ),
+  routeHandlers.riskCategoryProjectGet
+);
+router.get(
+  "/risk-category-project",
+  auth,
+  validateHeaders(
+    require("./schemas/risk-category-project.GET.list.req.headers.json")
+  ),
+  validateQuery(
+    require("./schemas/risk-category-project.GET.list.req.query.json")
+  ),
+  routeHandlers.riskCategoryProjectGetList
+);
+router.post(
+  "/risk-category-project",
+  auth,
+  validateHeaders(
+    require("./schemas/risk-category-project.POST.req.headers.json")
+  ),
+  validateBody(require("./schemas/risk-category-project.POST.req.body.json")),
+  routeHandlers.riskCategoryProjectPost
+);
+router.patch(
+  "/risk-category-project/:uuid",
+  auth,
+  validateHeaders(
+    require("./schemas/risk-category-project.PATCH.req.headers.json")
+  ),
+  validateParams(
+    require("./schemas/risk-category-project.PATCH.req.params.json")
+  ),
+  validateBody(require("./schemas/risk-category-project.PATCH.req.body.json")),
+  routeHandlers.riskCategoryProjectPatch
+);
+router.patch(
+  "/risk-category-project",
+  auth,
+  validateHeaders(
+    require("./schemas/risk-category-project.PATCH.list.req.headers.json")
+  ),
+  validateQuery(
+    require("./schemas/risk-category-project.PATCH.list.req.query.json")
+  ),
+  routeHandlers.riskCategoryProjectPatchList
+);
+router.delete(
+  "/risk-category-project/:uuid",
+  auth,
+  validateHeaders(
+    require("./schemas/risk-category-project.DELETE.req.headers.json")
+  ),
+  validateParams(
+    require("./schemas/risk-category-project.DELETE.req.params.json")
+  ),
+  routeHandlers.riskCategoryProjectDelete
+);
+router.delete(
+  "/risk-category-project",
+  auth,
+  validateHeaders(
+    require("./schemas/risk-category-project.DELETE.list.req.headers.json")
+  ),
+  validateQuery(
+    require("./schemas/risk-category-project.DELETE.list.req.query.json")
+  ),
+  routeHandlers.riskCategoryProjectDeleteList
+);
+router.get(
+  "/risk-discussion/:uuid",
+  auth,
+  validateHeaders(require("./schemas/risk-discussion.GET.req.headers.json")),
+  validateParams(require("./schemas/risk-discussion.GET.req.params.json")),
+  routeHandlers.riskDiscussionGet
+);
+router.get(
+  "/risk-discussion",
+  auth,
+  validateHeaders(
+    require("./schemas/risk-discussion.GET.list.req.headers.json")
+  ),
+  validateQuery(require("./schemas/risk-discussion.GET.list.req.query.json")),
+  routeHandlers.riskDiscussionGetList
+);
+router.post(
+  "/risk-discussion",
+  auth,
+  validateHeaders(require("./schemas/risk-discussion.POST.req.headers.json")),
+  validateBody(require("./schemas/risk-discussion.POST.req.body.json")),
+  routeHandlers.riskDiscussionPost
+);
+router.patch(
+  "/risk-discussion/:uuid",
+  auth,
+  validateHeaders(require("./schemas/risk-discussion.PATCH.req.headers.json")),
+  validateParams(require("./schemas/risk-discussion.PATCH.req.params.json")),
+  validateBody(require("./schemas/risk-discussion.PATCH.req.body.json")),
+  routeHandlers.riskDiscussionPatch
+);
+router.patch(
+  "/risk-discussion",
+  auth,
+  validateHeaders(
+    require("./schemas/risk-discussion.PATCH.list.req.headers.json")
+  ),
+  validateQuery(require("./schemas/risk-discussion.PATCH.list.req.query.json")),
+  routeHandlers.riskDiscussionPatchList
+);
+router.delete(
+  "/risk-discussion/:uuid",
+  auth,
+  validateHeaders(require("./schemas/risk-discussion.DELETE.req.headers.json")),
+  validateParams(require("./schemas/risk-discussion.DELETE.req.params.json")),
+  routeHandlers.riskDiscussionDelete
+);
+router.delete(
+  "/risk-discussion",
+  auth,
+  validateHeaders(
+    require("./schemas/risk-discussion.DELETE.list.req.headers.json")
+  ),
+  validateQuery(
+    require("./schemas/risk-discussion.DELETE.list.req.query.json")
+  ),
+  routeHandlers.riskDiscussionDeleteList
+);
+router.get(
+  "/risk-discussion-message/:uuid",
+  auth,
+  validateHeaders(
+    require("./schemas/risk-discussion-message.GET.req.headers.json")
+  ),
+  validateParams(
+    require("./schemas/risk-discussion-message.GET.req.params.json")
+  ),
+  routeHandlers.riskDiscussionMessageGet
+);
+router.get(
+  "/risk-discussion-message",
+  auth,
+  validateHeaders(
+    require("./schemas/risk-discussion-message.GET.list.req.headers.json")
+  ),
+  validateQuery(
+    require("./schemas/risk-discussion-message.GET.list.req.query.json")
+  ),
+  routeHandlers.riskDiscussionMessageGetList
+);
+router.post(
+  "/risk-discussion-message",
+  auth,
+  validateHeaders(
+    require("./schemas/risk-discussion-message.POST.req.headers.json")
+  ),
+  validateBody(require("./schemas/risk-discussion-message.POST.req.body.json")),
+  routeHandlers.riskDiscussionMessagePost
+);
+router.patch(
+  "/risk-discussion-message/:uuid",
+  auth,
+  validateHeaders(
+    require("./schemas/risk-discussion-message.PATCH.req.headers.json")
+  ),
+  validateParams(
+    require("./schemas/risk-discussion-message.PATCH.req.params.json")
+  ),
+  validateBody(
+    require("./schemas/risk-discussion-message.PATCH.req.body.json")
+  ),
+  routeHandlers.riskDiscussionMessagePatch
+);
+router.patch(
+  "/risk-discussion-message",
+  auth,
+  validateHeaders(
+    require("./schemas/risk-discussion-message.PATCH.list.req.headers.json")
+  ),
+  validateQuery(
+    require("./schemas/risk-discussion-message.PATCH.list.req.query.json")
+  ),
+  routeHandlers.riskDiscussionMessagePatchList
+);
+router.delete(
+  "/risk-discussion-message/:uuid",
+  auth,
+  validateHeaders(
+    require("./schemas/risk-discussion-message.DELETE.req.headers.json")
+  ),
+  validateParams(
+    require("./schemas/risk-discussion-message.DELETE.req.params.json")
+  ),
+  routeHandlers.riskDiscussionMessageDelete
+);
+router.delete(
+  "/risk-discussion-message",
+  auth,
+  validateHeaders(
+    require("./schemas/risk-discussion-message.DELETE.list.req.headers.json")
+  ),
+  validateQuery(
+    require("./schemas/risk-discussion-message.DELETE.list.req.query.json")
+  ),
+  routeHandlers.riskDiscussionMessageDeleteList
+);
+router.get(
+  "/risk-evaluation/:uuid",
+  auth,
+  validateHeaders(require("./schemas/risk-evaluation.GET.req.headers.json")),
+  validateParams(require("./schemas/risk-evaluation.GET.req.params.json")),
+  routeHandlers.riskEvaluationGet
+);
+router.get(
+  "/risk-evaluation",
+  auth,
+  validateHeaders(
+    require("./schemas/risk-evaluation.GET.list.req.headers.json")
+  ),
+  validateQuery(require("./schemas/risk-evaluation.GET.list.req.query.json")),
+  routeHandlers.riskEvaluationGetList
+);
+router.post(
+  "/risk-evaluation",
+  auth,
+  validateHeaders(require("./schemas/risk-evaluation.POST.req.headers.json")),
+  validateBody(require("./schemas/risk-evaluation.POST.req.body.json")),
+  routeHandlers.riskEvaluationPost
+);
+router.patch(
+  "/risk-evaluation/:uuid",
+  auth,
+  validateHeaders(require("./schemas/risk-evaluation.PATCH.req.headers.json")),
+  validateParams(require("./schemas/risk-evaluation.PATCH.req.params.json")),
+  validateBody(require("./schemas/risk-evaluation.PATCH.req.body.json")),
+  routeHandlers.riskEvaluationPatch
+);
+router.patch(
+  "/risk-evaluation",
+  auth,
+  validateHeaders(
+    require("./schemas/risk-evaluation.PATCH.list.req.headers.json")
+  ),
+  validateQuery(require("./schemas/risk-evaluation.PATCH.list.req.query.json")),
+  routeHandlers.riskEvaluationPatchList
+);
+router.delete(
+  "/risk-evaluation/:uuid",
+  auth,
+  validateHeaders(require("./schemas/risk-evaluation.DELETE.req.headers.json")),
+  validateParams(require("./schemas/risk-evaluation.DELETE.req.params.json")),
+  routeHandlers.riskEvaluationDelete
+);
+router.delete(
+  "/risk-evaluation",
+  auth,
+  validateHeaders(
+    require("./schemas/risk-evaluation.DELETE.list.req.headers.json")
+  ),
+  validateQuery(
+    require("./schemas/risk-evaluation.DELETE.list.req.query.json")
+  ),
+  routeHandlers.riskEvaluationDeleteList
+);
+router.get(
+  "/risk-evaluation-entry/:uuid",
+  auth,
+  validateHeaders(
+    require("./schemas/risk-evaluation-entry.GET.req.headers.json")
+  ),
+  validateParams(
+    require("./schemas/risk-evaluation-entry.GET.req.params.json")
+  ),
+  routeHandlers.riskEvaluationEntryGet
+);
+router.get(
+  "/risk-evaluation-entry",
+  auth,
+  validateHeaders(
+    require("./schemas/risk-evaluation-entry.GET.list.req.headers.json")
+  ),
+  validateQuery(
+    require("./schemas/risk-evaluation-entry.GET.list.req.query.json")
+  ),
+  routeHandlers.riskEvaluationEntryGetList
+);
+router.post(
+  "/risk-evaluation-entry",
+  auth,
+  validateHeaders(
+    require("./schemas/risk-evaluation-entry.POST.req.headers.json")
+  ),
+  validateBody(require("./schemas/risk-evaluation-entry.POST.req.body.json")),
+  routeHandlers.riskEvaluationEntryPost
+);
+router.patch(
+  "/risk-evaluation-entry/:uuid",
+  auth,
+  validateHeaders(
+    require("./schemas/risk-evaluation-entry.PATCH.req.headers.json")
+  ),
+  validateParams(
+    require("./schemas/risk-evaluation-entry.PATCH.req.params.json")
+  ),
+  validateBody(require("./schemas/risk-evaluation-entry.PATCH.req.body.json")),
+  routeHandlers.riskEvaluationEntryPatch
+);
+router.patch(
+  "/risk-evaluation-entry",
+  auth,
+  validateHeaders(
+    require("./schemas/risk-evaluation-entry.PATCH.list.req.headers.json")
+  ),
+  validateQuery(
+    require("./schemas/risk-evaluation-entry.PATCH.list.req.query.json")
+  ),
+  routeHandlers.riskEvaluationEntryPatchList
+);
+router.delete(
+  "/risk-evaluation-entry/:uuid",
+  auth,
+  validateHeaders(
+    require("./schemas/risk-evaluation-entry.DELETE.req.headers.json")
+  ),
+  validateParams(
+    require("./schemas/risk-evaluation-entry.DELETE.req.params.json")
+  ),
+  routeHandlers.riskEvaluationEntryDelete
+);
+router.delete(
+  "/risk-evaluation-entry",
+  auth,
+  validateHeaders(
+    require("./schemas/risk-evaluation-entry.DELETE.list.req.headers.json")
+  ),
+  validateQuery(
+    require("./schemas/risk-evaluation-entry.DELETE.list.req.query.json")
+  ),
+  routeHandlers.riskEvaluationEntryDeleteList
+);
+router.get(
+  "/risk-media/:uuid",
+  auth,
+  validateHeaders(require("./schemas/risk-media.GET.req.headers.json")),
+  validateParams(require("./schemas/risk-media.GET.req.params.json")),
+  routeHandlers.riskMediaGet
+);
+router.get(
+  "/risk-media",
+  auth,
+  validateHeaders(require("./schemas/risk-media.GET.list.req.headers.json")),
+  validateQuery(require("./schemas/risk-media.GET.list.req.query.json")),
+  routeHandlers.riskMediaGetList
+);
+router.post(
+  "/risk-media",
+  auth,
+  validateHeaders(require("./schemas/risk-media.POST.req.headers.json")),
+  validateBody(require("./schemas/risk-media.POST.req.body.json")),
+  routeHandlers.riskMediaPost
+);
+router.patch(
+  "/risk-media/:uuid",
+  auth,
+  validateHeaders(require("./schemas/risk-media.PATCH.req.headers.json")),
+  validateParams(require("./schemas/risk-media.PATCH.req.params.json")),
+  validateBody(require("./schemas/risk-media.PATCH.req.body.json")),
+  routeHandlers.riskMediaPatch
+);
+router.patch(
+  "/risk-media",
+  auth,
+  validateHeaders(require("./schemas/risk-media.PATCH.list.req.headers.json")),
+  validateQuery(require("./schemas/risk-media.PATCH.list.req.query.json")),
+  routeHandlers.riskMediaPatchList
+);
+router.delete(
+  "/risk-media/:uuid",
+  auth,
+  validateHeaders(require("./schemas/risk-media.DELETE.req.headers.json")),
+  validateParams(require("./schemas/risk-media.DELETE.req.params.json")),
+  routeHandlers.riskMediaDelete
+);
+router.delete(
+  "/risk-media",
+  auth,
+  validateHeaders(require("./schemas/risk-media.DELETE.list.req.headers.json")),
+  validateQuery(require("./schemas/risk-media.DELETE.list.req.query.json")),
+  routeHandlers.riskMediaDeleteList
+);
+router.get(
+  "/risk-type/:uuid",
+  auth,
+  validateHeaders(require("./schemas/risk-type.GET.req.headers.json")),
+  validateParams(require("./schemas/risk-type.GET.req.params.json")),
+  routeHandlers.riskTypeGet
+);
+router.get(
+  "/risk-type",
+  auth,
+  validateHeaders(require("./schemas/risk-type.GET.list.req.headers.json")),
+  validateQuery(require("./schemas/risk-type.GET.list.req.query.json")),
+  routeHandlers.riskTypeGetList
+);
+router.post(
+  "/risk-type",
+  auth,
+  validateHeaders(require("./schemas/risk-type.POST.req.headers.json")),
+  validateBody(require("./schemas/risk-type.POST.req.body.json")),
+  routeHandlers.riskTypePost
+);
+router.patch(
+  "/risk-type/:uuid",
+  auth,
+  validateHeaders(require("./schemas/risk-type.PATCH.req.headers.json")),
+  validateParams(require("./schemas/risk-type.PATCH.req.params.json")),
+  validateBody(require("./schemas/risk-type.PATCH.req.body.json")),
+  routeHandlers.riskTypePatch
+);
+router.patch(
+  "/risk-type",
+  auth,
+  validateHeaders(require("./schemas/risk-type.PATCH.list.req.headers.json")),
+  validateQuery(require("./schemas/risk-type.PATCH.list.req.query.json")),
+  routeHandlers.riskTypePatchList
+);
+router.delete(
+  "/risk-type/:uuid",
+  auth,
+  validateHeaders(require("./schemas/risk-type.DELETE.req.headers.json")),
+  validateParams(require("./schemas/risk-type.DELETE.req.params.json")),
+  routeHandlers.riskTypeDelete
+);
+router.delete(
+  "/risk-type",
+  auth,
+  validateHeaders(require("./schemas/risk-type.DELETE.list.req.headers.json")),
+  validateQuery(require("./schemas/risk-type.DELETE.list.req.query.json")),
+  routeHandlers.riskTypeDeleteList
+);
+router.get(
+  "/role/:uuid",
+  auth,
+  validateHeaders(require("./schemas/role.GET.req.headers.json")),
+  validateParams(require("./schemas/role.GET.req.params.json")),
+  routeHandlers.roleGet
+);
+router.get(
+  "/role",
+  auth,
+  validateHeaders(require("./schemas/role.GET.list.req.headers.json")),
+  validateQuery(require("./schemas/role.GET.list.req.query.json")),
+  routeHandlers.roleGetList
+);
+router.post(
+  "/role",
+  auth,
+  validateHeaders(require("./schemas/role.POST.req.headers.json")),
+  validateBody(require("./schemas/role.POST.req.body.json")),
+  routeHandlers.rolePost
+);
+router.patch(
+  "/role/:uuid",
+  auth,
+  validateHeaders(require("./schemas/role.PATCH.req.headers.json")),
+  validateParams(require("./schemas/role.PATCH.req.params.json")),
+  validateBody(require("./schemas/role.PATCH.req.body.json")),
+  routeHandlers.rolePatch
+);
+router.patch(
+  "/role",
+  auth,
+  validateHeaders(require("./schemas/role.PATCH.list.req.headers.json")),
+  validateQuery(require("./schemas/role.PATCH.list.req.query.json")),
+  routeHandlers.rolePatchList
+);
+router.delete(
+  "/role/:uuid",
+  auth,
+  validateHeaders(require("./schemas/role.DELETE.req.headers.json")),
+  validateParams(require("./schemas/role.DELETE.req.params.json")),
+  routeHandlers.roleDelete
+);
+router.delete(
+  "/role",
+  auth,
+  validateHeaders(require("./schemas/role.DELETE.list.req.headers.json")),
+  validateQuery(require("./schemas/role.DELETE.list.req.query.json")),
+  routeHandlers.roleDeleteList
+);
+router.get(
+  "/tag/:uuid",
+  auth,
+  validateHeaders(require("./schemas/tag.GET.req.headers.json")),
+  validateParams(require("./schemas/tag.GET.req.params.json")),
+  routeHandlers.tagGet
+);
+router.get(
+  "/tag",
+  auth,
+  validateHeaders(require("./schemas/tag.GET.list.req.headers.json")),
+  validateQuery(require("./schemas/tag.GET.list.req.query.json")),
+  routeHandlers.tagGetList
+);
+router.post(
+  "/tag",
+  auth,
+  validateHeaders(require("./schemas/tag.POST.req.headers.json")),
+  validateBody(require("./schemas/tag.POST.req.body.json")),
+  routeHandlers.tagPost
+);
+router.patch(
+  "/tag/:uuid",
+  auth,
+  validateHeaders(require("./schemas/tag.PATCH.req.headers.json")),
+  validateParams(require("./schemas/tag.PATCH.req.params.json")),
+  validateBody(require("./schemas/tag.PATCH.req.body.json")),
+  routeHandlers.tagPatch
+);
+router.patch(
+  "/tag",
+  auth,
+  validateHeaders(require("./schemas/tag.PATCH.list.req.headers.json")),
+  validateQuery(require("./schemas/tag.PATCH.list.req.query.json")),
+  routeHandlers.tagPatchList
+);
+router.delete(
+  "/tag/:uuid",
+  auth,
+  validateHeaders(require("./schemas/tag.DELETE.req.headers.json")),
+  validateParams(require("./schemas/tag.DELETE.req.params.json")),
+  routeHandlers.tagDelete
+);
+router.delete(
+  "/tag",
+  auth,
+  validateHeaders(require("./schemas/tag.DELETE.list.req.headers.json")),
+  validateQuery(require("./schemas/tag.DELETE.list.req.query.json")),
+  routeHandlers.tagDeleteList
+);
+router.get(
+  "/tag-organization/:uuid",
+  auth,
+  validateHeaders(require("./schemas/tag-organization.GET.req.headers.json")),
+  validateParams(require("./schemas/tag-organization.GET.req.params.json")),
+  routeHandlers.tagOrganizationGet
+);
+router.get(
+  "/tag-organization",
+  auth,
+  validateHeaders(
+    require("./schemas/tag-organization.GET.list.req.headers.json")
+  ),
+  validateQuery(require("./schemas/tag-organization.GET.list.req.query.json")),
+  routeHandlers.tagOrganizationGetList
+);
+router.post(
+  "/tag-organization",
+  auth,
+  validateHeaders(require("./schemas/tag-organization.POST.req.headers.json")),
+  validateBody(require("./schemas/tag-organization.POST.req.body.json")),
+  routeHandlers.tagOrganizationPost
+);
+router.patch(
+  "/tag-organization/:uuid",
+  auth,
+  validateHeaders(require("./schemas/tag-organization.PATCH.req.headers.json")),
+  validateParams(require("./schemas/tag-organization.PATCH.req.params.json")),
+  validateBody(require("./schemas/tag-organization.PATCH.req.body.json")),
+  routeHandlers.tagOrganizationPatch
+);
+router.patch(
+  "/tag-organization",
+  auth,
+  validateHeaders(
+    require("./schemas/tag-organization.PATCH.list.req.headers.json")
+  ),
+  validateQuery(
+    require("./schemas/tag-organization.PATCH.list.req.query.json")
+  ),
+  routeHandlers.tagOrganizationPatchList
+);
+router.delete(
+  "/tag-organization/:uuid",
+  auth,
+  validateHeaders(
+    require("./schemas/tag-organization.DELETE.req.headers.json")
+  ),
+  validateParams(require("./schemas/tag-organization.DELETE.req.params.json")),
+  routeHandlers.tagOrganizationDelete
+);
+router.delete(
+  "/tag-organization",
+  auth,
+  validateHeaders(
+    require("./schemas/tag-organization.DELETE.list.req.headers.json")
+  ),
+  validateQuery(
+    require("./schemas/tag-organization.DELETE.list.req.query.json")
+  ),
+  routeHandlers.tagOrganizationDeleteList
+);
+router.get(
+  "/tag-project/:uuid",
+  auth,
+  validateHeaders(require("./schemas/tag-project.GET.req.headers.json")),
+  validateParams(require("./schemas/tag-project.GET.req.params.json")),
+  routeHandlers.tagProjectGet
+);
+router.get(
+  "/tag-project",
+  auth,
+  validateHeaders(require("./schemas/tag-project.GET.list.req.headers.json")),
+  validateQuery(require("./schemas/tag-project.GET.list.req.query.json")),
+  routeHandlers.tagProjectGetList
+);
+router.post(
+  "/tag-project",
+  auth,
+  validateHeaders(require("./schemas/tag-project.POST.req.headers.json")),
+  validateBody(require("./schemas/tag-project.POST.req.body.json")),
+  routeHandlers.tagProjectPost
+);
+router.patch(
+  "/tag-project/:uuid",
+  auth,
+  validateHeaders(require("./schemas/tag-project.PATCH.req.headers.json")),
+  validateParams(require("./schemas/tag-project.PATCH.req.params.json")),
+  validateBody(require("./schemas/tag-project.PATCH.req.body.json")),
+  routeHandlers.tagProjectPatch
+);
+router.patch(
+  "/tag-project",
+  auth,
+  validateHeaders(require("./schemas/tag-project.PATCH.list.req.headers.json")),
+  validateQuery(require("./schemas/tag-project.PATCH.list.req.query.json")),
+  routeHandlers.tagProjectPatchList
+);
+router.delete(
+  "/tag-project/:uuid",
+  auth,
+  validateHeaders(require("./schemas/tag-project.DELETE.req.headers.json")),
+  validateParams(require("./schemas/tag-project.DELETE.req.params.json")),
+  routeHandlers.tagProjectDelete
+);
+router.delete(
+  "/tag-project",
+  auth,
+  validateHeaders(
+    require("./schemas/tag-project.DELETE.list.req.headers.json")
+  ),
+  validateQuery(require("./schemas/tag-project.DELETE.list.req.query.json")),
+  routeHandlers.tagProjectDeleteList
+);
+router.get(
+  "/user/:uuid",
+  auth,
+  validateHeaders(require("./schemas/user.GET.req.headers.json")),
+  validateParams(require("./schemas/user.GET.req.params.json")),
+  routeHandlers.userGet
+);
+router.get(
+  "/user",
+  auth,
+  validateHeaders(require("./schemas/user.GET.list.req.headers.json")),
+  validateQuery(require("./schemas/user.GET.list.req.query.json")),
+  routeHandlers.userGetList
+);
+router.post(
+  "/user",
+  auth,
+  validateHeaders(require("./schemas/user.POST.req.headers.json")),
+  validateBody(require("./schemas/user.POST.req.body.json")),
+  routeHandlers.userPost
+);
+router.patch(
+  "/user/:uuid",
+  auth,
+  validateHeaders(require("./schemas/user.PATCH.req.headers.json")),
+  validateParams(require("./schemas/user.PATCH.req.params.json")),
+  validateBody(require("./schemas/user.PATCH.req.body.json")),
+  routeHandlers.userPatch
+);
+router.patch(
+  "/user",
+  auth,
+  validateHeaders(require("./schemas/user.PATCH.list.req.headers.json")),
+  validateQuery(require("./schemas/user.PATCH.list.req.query.json")),
+  routeHandlers.userPatchList
+);
+router.delete(
+  "/user/:uuid",
+  auth,
+  validateHeaders(require("./schemas/user.DELETE.req.headers.json")),
+  validateParams(require("./schemas/user.DELETE.req.params.json")),
+  routeHandlers.userDelete
+);
+router.delete(
+  "/user",
+  auth,
+  validateHeaders(require("./schemas/user.DELETE.list.req.headers.json")),
+  validateQuery(require("./schemas/user.DELETE.list.req.query.json")),
+  routeHandlers.userDeleteList
+);
+router.get(
+  "/user-organization/:uuid",
+  auth,
+  validateHeaders(require("./schemas/user-organization.GET.req.headers.json")),
+  validateParams(require("./schemas/user-organization.GET.req.params.json")),
+  routeHandlers.userOrganizationGet
+);
+router.get(
+  "/user-organization",
+  auth,
+  validateHeaders(
+    require("./schemas/user-organization.GET.list.req.headers.json")
+  ),
+  validateQuery(require("./schemas/user-organization.GET.list.req.query.json")),
+  routeHandlers.userOrganizationGetList
+);
+router.post(
+  "/user-organization",
+  auth,
+  validateHeaders(require("./schemas/user-organization.POST.req.headers.json")),
+  validateBody(require("./schemas/user-organization.POST.req.body.json")),
+  routeHandlers.userOrganizationPost
+);
+router.patch(
+  "/user-organization/:uuid",
+  auth,
+  validateHeaders(
+    require("./schemas/user-organization.PATCH.req.headers.json")
+  ),
+  validateParams(require("./schemas/user-organization.PATCH.req.params.json")),
+  validateBody(require("./schemas/user-organization.PATCH.req.body.json")),
+  routeHandlers.userOrganizationPatch
+);
+router.patch(
+  "/user-organization",
+  auth,
+  validateHeaders(
+    require("./schemas/user-organization.PATCH.list.req.headers.json")
+  ),
+  validateQuery(
+    require("./schemas/user-organization.PATCH.list.req.query.json")
+  ),
+  routeHandlers.userOrganizationPatchList
+);
+router.delete(
+  "/user-organization/:uuid",
+  auth,
+  validateHeaders(
+    require("./schemas/user-organization.DELETE.req.headers.json")
+  ),
+  validateParams(require("./schemas/user-organization.DELETE.req.params.json")),
+  routeHandlers.userOrganizationDelete
+);
+router.delete(
+  "/user-organization",
+  auth,
+  validateHeaders(
+    require("./schemas/user-organization.DELETE.list.req.headers.json")
+  ),
+  validateQuery(
+    require("./schemas/user-organization.DELETE.list.req.query.json")
+  ),
+  routeHandlers.userOrganizationDeleteList
+);
+router.get(
+  "/user-organization-role/:uuid",
+  auth,
+  validateHeaders(
+    require("./schemas/user-organization-role.GET.req.headers.json")
+  ),
+  validateParams(
+    require("./schemas/user-organization-role.GET.req.params.json")
+  ),
+  routeHandlers.userOrganizationRoleGet
+);
+router.get(
+  "/user-organization-role",
+  auth,
+  validateHeaders(
+    require("./schemas/user-organization-role.GET.list.req.headers.json")
+  ),
+  validateQuery(
+    require("./schemas/user-organization-role.GET.list.req.query.json")
+  ),
+  routeHandlers.userOrganizationRoleGetList
+);
+router.post(
+  "/user-organization-role",
+  auth,
+  validateHeaders(
+    require("./schemas/user-organization-role.POST.req.headers.json")
+  ),
+  validateBody(require("./schemas/user-organization-role.POST.req.body.json")),
+  routeHandlers.userOrganizationRolePost
+);
+router.patch(
+  "/user-organization-role/:uuid",
+  auth,
+  validateHeaders(
+    require("./schemas/user-organization-role.PATCH.req.headers.json")
+  ),
+  validateParams(
+    require("./schemas/user-organization-role.PATCH.req.params.json")
+  ),
+  validateBody(require("./schemas/user-organization-role.PATCH.req.body.json")),
+  routeHandlers.userOrganizationRolePatch
+);
+router.patch(
+  "/user-organization-role",
+  auth,
+  validateHeaders(
+    require("./schemas/user-organization-role.PATCH.list.req.headers.json")
+  ),
+  validateQuery(
+    require("./schemas/user-organization-role.PATCH.list.req.query.json")
+  ),
+  routeHandlers.userOrganizationRolePatchList
+);
+router.delete(
+  "/user-organization-role/:uuid",
+  auth,
+  validateHeaders(
+    require("./schemas/user-organization-role.DELETE.req.headers.json")
+  ),
+  validateParams(
+    require("./schemas/user-organization-role.DELETE.req.params.json")
+  ),
+  routeHandlers.userOrganizationRoleDelete
+);
+router.delete(
+  "/user-organization-role",
+  auth,
+  validateHeaders(
+    require("./schemas/user-organization-role.DELETE.list.req.headers.json")
+  ),
+  validateQuery(
+    require("./schemas/user-organization-role.DELETE.list.req.query.json")
+  ),
+  routeHandlers.userOrganizationRoleDeleteList
+);
+router.get(
+  "/user-project/:uuid",
+  auth,
+  validateHeaders(require("./schemas/user-project.GET.req.headers.json")),
+  validateParams(require("./schemas/user-project.GET.req.params.json")),
+  routeHandlers.userProjectGet
+);
+router.get(
+  "/user-project",
+  auth,
+  validateHeaders(require("./schemas/user-project.GET.list.req.headers.json")),
+  validateQuery(require("./schemas/user-project.GET.list.req.query.json")),
+  routeHandlers.userProjectGetList
+);
+router.post(
+  "/user-project",
+  auth,
+  validateHeaders(require("./schemas/user-project.POST.req.headers.json")),
+  validateBody(require("./schemas/user-project.POST.req.body.json")),
+  routeHandlers.userProjectPost
+);
+router.patch(
+  "/user-project/:uuid",
+  auth,
+  validateHeaders(require("./schemas/user-project.PATCH.req.headers.json")),
+  validateParams(require("./schemas/user-project.PATCH.req.params.json")),
+  validateBody(require("./schemas/user-project.PATCH.req.body.json")),
+  routeHandlers.userProjectPatch
+);
+router.patch(
+  "/user-project",
+  auth,
+  validateHeaders(
+    require("./schemas/user-project.PATCH.list.req.headers.json")
+  ),
+  validateQuery(require("./schemas/user-project.PATCH.list.req.query.json")),
+  routeHandlers.userProjectPatchList
+);
+router.delete(
+  "/user-project/:uuid",
+  auth,
+  validateHeaders(require("./schemas/user-project.DELETE.req.headers.json")),
+  validateParams(require("./schemas/user-project.DELETE.req.params.json")),
+  routeHandlers.userProjectDelete
+);
+router.delete(
+  "/user-project",
+  auth,
+  validateHeaders(
+    require("./schemas/user-project.DELETE.list.req.headers.json")
+  ),
+  validateQuery(require("./schemas/user-project.DELETE.list.req.query.json")),
+  routeHandlers.userProjectDeleteList
+);
+router.get(
+  "/user-role/:uuid",
+  auth,
+  validateHeaders(require("./schemas/user-role.GET.req.headers.json")),
+  validateParams(require("./schemas/user-role.GET.req.params.json")),
+  routeHandlers.userRoleGet
+);
+router.get(
+  "/user-role",
+  auth,
+  validateHeaders(require("./schemas/user-role.GET.list.req.headers.json")),
+  validateQuery(require("./schemas/user-role.GET.list.req.query.json")),
+  routeHandlers.userRoleGetList
+);
+router.post(
+  "/user-role",
+  auth,
+  validateHeaders(require("./schemas/user-role.POST.req.headers.json")),
+  validateBody(require("./schemas/user-role.POST.req.body.json")),
+  routeHandlers.userRolePost
+);
+router.patch(
+  "/user-role/:uuid",
+  auth,
+  validateHeaders(require("./schemas/user-role.PATCH.req.headers.json")),
+  validateParams(require("./schemas/user-role.PATCH.req.params.json")),
+  validateBody(require("./schemas/user-role.PATCH.req.body.json")),
+  routeHandlers.userRolePatch
+);
+router.patch(
+  "/user-role",
+  auth,
+  validateHeaders(require("./schemas/user-role.PATCH.list.req.headers.json")),
+  validateQuery(require("./schemas/user-role.PATCH.list.req.query.json")),
+  routeHandlers.userRolePatchList
+);
+router.delete(
+  "/user-role/:uuid",
+  auth,
+  validateHeaders(require("./schemas/user-role.DELETE.req.headers.json")),
+  validateParams(require("./schemas/user-role.DELETE.req.params.json")),
+  routeHandlers.userRoleDelete
+);
+router.delete(
+  "/user-role",
+  auth,
+  validateHeaders(require("./schemas/user-role.DELETE.list.req.headers.json")),
+  validateQuery(require("./schemas/user-role.DELETE.list.req.query.json")),
+  routeHandlers.userRoleDeleteList
+);
+router.get(
+  "/_attribute-base/:uuid",
+  auth,
+  validateHeaders(require("./schemas/_attribute-base.GET.req.headers.json")),
+  validateParams(require("./schemas/_attribute-base.GET.req.params.json")),
+  routeHandlers.attributeBaseGet
+);
+router.get(
+  "/_attribute-base",
+  auth,
+  validateHeaders(
+    require("./schemas/_attribute-base.GET.list.req.headers.json")
+  ),
+  validateQuery(require("./schemas/_attribute-base.GET.list.req.query.json")),
+  routeHandlers.attributeBaseGetList
+);
+router.post(
+  "/_attribute-base",
+  auth,
+  validateHeaders(require("./schemas/_attribute-base.POST.req.headers.json")),
+  validateBody(require("./schemas/_attribute-base.POST.req.body.json")),
+  routeHandlers.attributeBasePost
+);
+router.patch(
+  "/_attribute-base/:uuid",
+  auth,
+  validateHeaders(require("./schemas/_attribute-base.PATCH.req.headers.json")),
+  validateParams(require("./schemas/_attribute-base.PATCH.req.params.json")),
+  validateBody(require("./schemas/_attribute-base.PATCH.req.body.json")),
+  routeHandlers.attributeBasePatch
+);
+router.patch(
+  "/_attribute-base",
+  auth,
+  validateHeaders(
+    require("./schemas/_attribute-base.PATCH.list.req.headers.json")
+  ),
+  validateQuery(require("./schemas/_attribute-base.PATCH.list.req.query.json")),
+  routeHandlers.attributeBasePatchList
+);
+router.delete(
+  "/_attribute-base/:uuid",
+  auth,
+  validateHeaders(require("./schemas/_attribute-base.DELETE.req.headers.json")),
+  validateParams(require("./schemas/_attribute-base.DELETE.req.params.json")),
+  routeHandlers.attributeBaseDelete
+);
+router.delete(
+  "/_attribute-base",
+  auth,
+  validateHeaders(
+    require("./schemas/_attribute-base.DELETE.list.req.headers.json")
+  ),
+  validateQuery(
+    require("./schemas/_attribute-base.DELETE.list.req.query.json")
+  ),
+  routeHandlers.attributeBaseDeleteList
+);
+router.get(
+  "/_attribute-type-base/:uuid",
+  auth,
+  validateHeaders(
+    require("./schemas/_attribute-type-base.GET.req.headers.json")
+  ),
+  validateParams(require("./schemas/_attribute-type-base.GET.req.params.json")),
+  routeHandlers.attributeTypeBaseGet
+);
+router.get(
+  "/_attribute-type-base",
+  auth,
+  validateHeaders(
+    require("./schemas/_attribute-type-base.GET.list.req.headers.json")
+  ),
+  validateQuery(
+    require("./schemas/_attribute-type-base.GET.list.req.query.json")
+  ),
+  routeHandlers.attributeTypeBaseGetList
+);
+router.post(
+  "/_attribute-type-base",
+  auth,
+  validateHeaders(
+    require("./schemas/_attribute-type-base.POST.req.headers.json")
+  ),
+  validateBody(require("./schemas/_attribute-type-base.POST.req.body.json")),
+  routeHandlers.attributeTypeBasePost
+);
+router.patch(
+  "/_attribute-type-base/:uuid",
+  auth,
+  validateHeaders(
+    require("./schemas/_attribute-type-base.PATCH.req.headers.json")
+  ),
+  validateParams(
+    require("./schemas/_attribute-type-base.PATCH.req.params.json")
+  ),
+  validateBody(require("./schemas/_attribute-type-base.PATCH.req.body.json")),
+  routeHandlers.attributeTypeBasePatch
+);
+router.patch(
+  "/_attribute-type-base",
+  auth,
+  validateHeaders(
+    require("./schemas/_attribute-type-base.PATCH.list.req.headers.json")
+  ),
+  validateQuery(
+    require("./schemas/_attribute-type-base.PATCH.list.req.query.json")
+  ),
+  routeHandlers.attributeTypeBasePatchList
+);
+router.delete(
+  "/_attribute-type-base/:uuid",
+  auth,
+  validateHeaders(
+    require("./schemas/_attribute-type-base.DELETE.req.headers.json")
+  ),
+  validateParams(
+    require("./schemas/_attribute-type-base.DELETE.req.params.json")
+  ),
+  routeHandlers.attributeTypeBaseDelete
+);
+router.delete(
+  "/_attribute-type-base",
+  auth,
+  validateHeaders(
+    require("./schemas/_attribute-type-base.DELETE.list.req.headers.json")
+  ),
+  validateQuery(
+    require("./schemas/_attribute-type-base.DELETE.list.req.query.json")
+  ),
+  routeHandlers.attributeTypeBaseDeleteList
+);
+router.get(
+  "/_attribute-type-value-base/:uuid",
+  auth,
+  validateHeaders(
+    require("./schemas/_attribute-type-value-base.GET.req.headers.json")
+  ),
+  validateParams(
+    require("./schemas/_attribute-type-value-base.GET.req.params.json")
+  ),
+  routeHandlers.attributeTypeValueBaseGet
+);
+router.get(
+  "/_attribute-type-value-base",
+  auth,
+  validateHeaders(
+    require("./schemas/_attribute-type-value-base.GET.list.req.headers.json")
+  ),
+  validateQuery(
+    require("./schemas/_attribute-type-value-base.GET.list.req.query.json")
+  ),
+  routeHandlers.attributeTypeValueBaseGetList
+);
+router.post(
+  "/_attribute-type-value-base",
+  auth,
+  validateHeaders(
+    require("./schemas/_attribute-type-value-base.POST.req.headers.json")
+  ),
+  validateBody(
+    require("./schemas/_attribute-type-value-base.POST.req.body.json")
+  ),
+  routeHandlers.attributeTypeValueBasePost
+);
+router.patch(
+  "/_attribute-type-value-base/:uuid",
+  auth,
+  validateHeaders(
+    require("./schemas/_attribute-type-value-base.PATCH.req.headers.json")
+  ),
+  validateParams(
+    require("./schemas/_attribute-type-value-base.PATCH.req.params.json")
+  ),
+  validateBody(
+    require("./schemas/_attribute-type-value-base.PATCH.req.body.json")
+  ),
+  routeHandlers.attributeTypeValueBasePatch
+);
+router.patch(
+  "/_attribute-type-value-base",
+  auth,
+  validateHeaders(
+    require("./schemas/_attribute-type-value-base.PATCH.list.req.headers.json")
+  ),
+  validateQuery(
+    require("./schemas/_attribute-type-value-base.PATCH.list.req.query.json")
+  ),
+  routeHandlers.attributeTypeValueBasePatchList
+);
+router.delete(
+  "/_attribute-type-value-base/:uuid",
+  auth,
+  validateHeaders(
+    require("./schemas/_attribute-type-value-base.DELETE.req.headers.json")
+  ),
+  validateParams(
+    require("./schemas/_attribute-type-value-base.DELETE.req.params.json")
+  ),
+  routeHandlers.attributeTypeValueBaseDelete
+);
+router.delete(
+  "/_attribute-type-value-base",
+  auth,
+  validateHeaders(
+    require("./schemas/_attribute-type-value-base.DELETE.list.req.headers.json")
+  ),
+  validateQuery(
+    require("./schemas/_attribute-type-value-base.DELETE.list.req.query.json")
+  ),
+  routeHandlers.attributeTypeValueBaseDeleteList
+);
+router.get(
+  "/_base/:uuid",
+  auth,
+  validateHeaders(require("./schemas/_base.GET.req.headers.json")),
+  validateParams(require("./schemas/_base.GET.req.params.json")),
+  routeHandlers.baseGet
+);
+router.get(
+  "/_base",
+  auth,
+  validateHeaders(require("./schemas/_base.GET.list.req.headers.json")),
+  validateQuery(require("./schemas/_base.GET.list.req.query.json")),
+  routeHandlers.baseGetList
+);
+router.post(
+  "/_base",
+  auth,
+  validateHeaders(require("./schemas/_base.POST.req.headers.json")),
+  validateBody(require("./schemas/_base.POST.req.body.json")),
+  routeHandlers.basePost
+);
+router.patch(
+  "/_base/:uuid",
+  auth,
+  validateHeaders(require("./schemas/_base.PATCH.req.headers.json")),
+  validateParams(require("./schemas/_base.PATCH.req.params.json")),
+  validateBody(require("./schemas/_base.PATCH.req.body.json")),
+  routeHandlers.basePatch
+);
+router.patch(
+  "/_base",
+  auth,
+  validateHeaders(require("./schemas/_base.PATCH.list.req.headers.json")),
+  validateQuery(require("./schemas/_base.PATCH.list.req.query.json")),
+  routeHandlers.basePatchList
+);
+router.delete(
+  "/_base/:uuid",
+  auth,
+  validateHeaders(require("./schemas/_base.DELETE.req.headers.json")),
+  validateParams(require("./schemas/_base.DELETE.req.params.json")),
+  routeHandlers.baseDelete
+);
+router.delete(
+  "/_base",
+  auth,
+  validateHeaders(require("./schemas/_base.DELETE.list.req.headers.json")),
+  validateQuery(require("./schemas/_base.DELETE.list.req.query.json")),
+  routeHandlers.baseDeleteList
+);
+
+module.exports = router;

@@ -1,0 +1,14 @@
+{
+  "apps": [
+    {
+      "name": "gateway",
+      "cwd": ".",
+      "script": "./src/index.ts",
+      "interpreter": "node_modules/.bin/nodemon",
+      "interpreter_args": "--inspect=5000 --max-http-header-size 500000 --ignore test/* -r ts-node/register -e ts,js",
+      "env": {
+        "PORT": 8000
+      }
+    }
+  ]
+}

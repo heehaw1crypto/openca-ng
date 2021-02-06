@@ -1,0 +1,35 @@
+version: "3.3"
+services:
+  mysql:
+    image: mysql:5.7
+    volumes:
+      - mysql_data:/var/lib/mysql
+    restart: always
+    ports:
+      - "3497:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
+  dev:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      - mysql
+    ports:
+      - "8066:8000"
+    stdin_open: true
+    tty: true
+    volumes:
+      - type: bind
+        source: ./
+        target: /workspace
+    environment:
+      DB_USER: root
+      DB_PASSWORD: root
+      DB_HOST: mysql
+      NODE_ENV: development
+      API_BASE_URL: https://api.openca.org
+volumes:
+  mysql_data: {}

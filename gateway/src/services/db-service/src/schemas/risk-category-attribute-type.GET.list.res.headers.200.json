@@ -1,0 +1,16 @@
+{
+  "type": "object",
+  "properties": {
+    "x-pagination-total-count": { "type": "integer", "minimum": 0 },
+    "x-pagination-has-previous-page": { "type": "boolean" },
+    "x-pagination-has-next-page": { "type": "boolean" },
+    "x-pagination-limit": { "type": "integer", "minimum": 0 },
+    "x-pagination-offset": { "type": "integer", "minimum": 0 },
+    "x-pagination-page": { "type": "integer", "minimum": 1 },
+    "x-pagination-page-size": { "type": "integer", "minimum": 0 },
+    "x-pagination-last-page": { "type": "integer", "minimum": 1 },
+    "x-pagination-start-cursor": { "type": "string" },
+    "x-pagination-end-cursor": { "type": "string" }
+  },
+  "additionalProperties": true
+}

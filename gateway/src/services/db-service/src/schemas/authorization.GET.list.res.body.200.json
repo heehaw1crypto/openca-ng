@@ -1,0 +1,15 @@
+{
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "uuid": { "type": "string", "maxLength": 36 },
+      "serviceName": { "type": "string", "maxLength": 255 },
+      "key": { "type": "string", "maxLength": 255 },
+      "secret": { "type": "string", "maxLength": 255 },
+      "created": { "type": "string", "format": "date-time" }
+    },
+    "additionalProperties": false,
+    "required": ["uuid", "serviceName", "key", "secret", "created"]
+  }
+}

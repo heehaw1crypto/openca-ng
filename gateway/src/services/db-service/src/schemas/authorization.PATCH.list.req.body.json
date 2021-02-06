@@ -1,0 +1,11 @@
+{
+  "type": "object",
+  "properties": {
+    "serviceName": { "type": "string", "maxLength": 255 },
+    "key": { "type": "string", "maxLength": 255 },
+    "secret": { "type": "string", "maxLength": 255 },
+    "created": { "type": "string", "format": "date-time" }
+  },
+  "additionalProperties": false,
+  "required": []
+}

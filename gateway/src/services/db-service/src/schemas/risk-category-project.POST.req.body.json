@@ -1,0 +1,31 @@
+{
+  "type": "object",
+  "properties": {
+    "riskCategoryUuid": { "type": ["string", "null"], "maxLength": 36 },
+    "projectUuid": { "type": ["string", "null"], "maxLength": 36 },
+    "shortDescription": { "type": ["string", "null"], "maxLength": 255 },
+    "longDescription": { "type": ["string", "null"] },
+    "created": { "type": "string", "format": "date-time" },
+    "creator": { "type": "string", "maxLength": 36 },
+    "metadata": { "type": ["string", "null"] },
+    "updated": { "type": ["string", "null"], "format": "date-time" },
+    "updaterIdentityUuid": { "type": ["string", "null"], "maxLength": 36 },
+    "valid": { "type": "boolean" },
+    "archived": { "type": "boolean" },
+    "cacheKey": { "type": ["string", "null"], "maxLength": 36 },
+    "integrityKey": { "type": ["string", "null"], "maxLength": 255 },
+    "deidentified": { "type": "boolean" },
+    "deidentifiedTimestamp": { "type": ["integer", "null"] },
+    "markedForExpungepment": { "type": "boolean" },
+    "expungementTimestamp": { "type": ["integer", "null"] },
+    "containsSensitiveData": { "type": "boolean" },
+    "sensitivityClassificationTypeEnum": { "type": "string", "maxLength": 20 },
+    "version": { "type": "string", "maxLength": 10 },
+    "correlationUuid": { "type": ["string", "null"], "maxLength": 36 },
+    "externalId": { "type": ["string", "null"], "maxLength": 255 },
+    "comment": { "type": ["string", "null"] },
+    "recordType": { "type": ["string", "null"], "maxLength": 6 }
+  },
+  "additionalProperties": false,
+  "required": ["creator"]
+}

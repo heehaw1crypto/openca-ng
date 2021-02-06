@@ -1,0 +1,19 @@
+node_modules
+node_modules_tmp
+
+sandbox
+.DS_Store
+
+backend-env.sh
+
+start-backend.sh
+
+dist
+
+# db-service
+.local
+
+.npmrc
+.nvmrc
+
+*.log

@@ -1,0 +1,8 @@
+{
+  "type": "object",
+  "properties": {
+    "x-user-uuid": { "type": "string" },
+    "authorization": { "type": "string" }
+  },
+  "required": ["authorization"]
+}

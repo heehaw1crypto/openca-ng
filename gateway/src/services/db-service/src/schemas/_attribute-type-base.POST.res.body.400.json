@@ -1,0 +1,11 @@
+{
+  "type": "object",
+  "properties": {
+    "errors": {
+      "type": "array",
+      "items": { "oneOf": [{ "type": "string" }, { "type": "object" }] }
+    }
+  },
+  "additionalProperties": false,
+  "required": ["errors"]
+}

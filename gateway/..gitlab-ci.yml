@@ -1,0 +1,28 @@
+image: ubuntu:bionic
+
+stages:
+  - deploy_master
+
+before_script:
+  - echo "beginning before_script"
+  # Check for ssh-agent + rsync and install if not present
+  - "which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y  )"
+  - eval $(ssh-agent -s)
+  # Inject the remote's private key
+  - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add - > /dev/null
+  - mkdir -p ~/.ssh
+  - chmod 700 ~/.ssh
+  # Append keyscan output into known hosts
+  - ssh-keyscan $PRODUCTION_SERVER_IP >> ~/.ssh/known_hosts
+  - ssh-keyscan gitlab.com >> ~/.ssh/known_hosts
+  - chmod 644 ~/.ssh/known_hosts
+  - pwd
+  - echo "before_script complete"
+
+deploy_master:
+  stage: deploy_master
+  script:
+    # Non interactive ssh
+    - ssh $SERVER_USER@$PRODUCTION_SERVER_IP 'eval `ssh-agent -s` && ssh-add ~/.ssh/id_ed25519 && cd /root/cloud/gateway && git checkout master && git pull origin master && source deploy-prod.sh'
+  only:
+    - master

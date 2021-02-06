@@ -1,0 +1,10 @@
+
+.DS_Store
+*.log
+*.out
+*.env*
+node_modules
+.esm-cache
+
+.vscode
+.idea
